@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "309007799378",
+    "firebase_url": "https://eplant-947b2.firebaseio.com",
+    "project_id": "eplant-947b2",
+    "storage_bucket": "eplant-947b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309007799378:android:b6a1b11751dab9b0",
+        "android_client_info": {
+          "package_name": "com.companyname.ProjectEPlant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "309007799378-nuq9qmh5qjg5pq1oqug9l34go5arlbrk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.companyname.ProjectEPlant",
+            "certificate_hash": "a7acacccfcd216f6ffe2675808d6315de0c912ec"
+          }
+        },
+        {
+          "client_id": "309007799378-hbp47laeus56flg9rsaohs1t9rp1f452.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9-Odjx52OEviGfKc4g3Y7zuOV5FGA6Lo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "309007799378-hbp47laeus56flg9rsaohs1t9rp1f452.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

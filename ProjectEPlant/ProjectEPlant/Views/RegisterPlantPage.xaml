@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             mc:Ignorable="d"
+             x:Class="ProjectEPlant.Views.RegisterPlantPage"
+             Title="Registro Planta">
+    <ScrollView
+        BackgroundColor="White">
+        <StackLayout
+            Margin="10">
+            <!--<Label
+                Text="Registro Planta"
+                HorizontalOptions="Center"
+                TextColor="Black"
+                FontSize="Large"
+                FontAttributes="Bold"></Label>-->
+            <controls:CircleImage
+                x:Name="image"
+                Margin="10"
+                HorizontalOptions="Fill"
+                Aspect="AspectFit"
+                HeightRequest="100"
+                WidthRequest="100">
+                <controls:CircleImage.Source>
+                    <OnPlatform
+                        x:TypeArguments="ImageSource">
+                        <OnPlatform.Android>
+                            <FileImageSource></FileImageSource>
+                        </OnPlatform.Android>
+                    </OnPlatform>
+                </controls:CircleImage.Source>
+            </controls:CircleImage>
+            <Button
+                Text="Selecciona una foto"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Clicked="SelectPhoto"
+                BackgroundColor="White"></Button>
+            <Label
+                Text="Nombre común"
+                HorizontalOptions="FillAndExpand"
+                TextColor="Black"
+                FontAttributes="Bold"></Label>
+            <Entry
+                x:Name="entryNombreComun"
+                Placeholder="Ingrese el nombre técnico"
+                HorizontalOptions="FillAndExpand"
+                TextColor="Black"
+                IsSpellCheckEnabled="True"
+                ReturnType="Next"></Entry>
+            <Label
+                Text="Nombre científico"
+                HorizontalOptions="FillAndExpand"
+                TextColor="Black"
+                FontAttributes="Bold"></Label>
+            <Entry
+                x:Name="entryNombreCientifico"
+                Placeholder="Ingrese el nombre científico"
+                HorizontalOptions="FillAndExpand"
+                IsSpellCheckEnabled="True"
+                ReturnType="Next"></Entry>
+            <Label
+                Text="Temporada"
+                HorizontalOptions="FillAndExpand"
+                TextColor="Black"
+                FontAttributes="Bold"></Label>
+            <Entry
+                x:Name="entryTemporada"
+                Placeholder="Ingrese la temporada"
+                HorizontalOptions="FillAndExpand"
+                Keyboard="Default"
+                IsSpellCheckEnabled="True"
+                ReturnType="Next"></Entry>
+            <Label
+                Text="Riego"
+                HorizontalOptions="FillAndExpand"
+                TextColor="Black"
+                FontAttributes="Bold"></Label>
+            <controls:BindableRadioGroup
+                x:Name="radioButtonRiego"></controls:BindableRadioGroup>
+            <Label
+                Text="Tipo de Cultivo"
+                TextColor="Black"
+                FontAttributes="Bold"></Label>
+            <controls:BindableRadioGroup
+                x:Name="radioButtonCultivo"></controls:BindableRadioGroup>
+            <Label
+                Text="Ciclo de vida (Meses)"
+                TextColor="Black"
+                FontAttributes="Bold"></Label>
+            <Entry
+                x:Name="entryCicloVida"
+                Placeholder="Ingrese el ciclo de vida"
+                Keyboard="Numeric"></Entry>
+            <Label
+                Text="Usos"
+                TextColor="Black"
+                FontAttributes="Bold"></Label>
+            <Editor
+                x:Name="editorUsos"
+                Placeholder="Ingrese sus usos"></Editor>
+            <Label
+                Text="Tamaño (Centimetros)"
+                TextColor="Black"
+                FontAttributes="Bold"></Label>
+            <Entry
+                x:Name="entryTamaño"
+                Placeholder="Tamaño"
+                VerticalOptions="End"
+                Keyboard="Numeric"></Entry>
+            <Button
+                Margin="90,30,90,30"
+                Text="Guardar"
+                HorizontalOptions="Center"
+                BackgroundColor="LightSeaGreen"
+                Clicked="saveRegistroPlanta"></Button>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

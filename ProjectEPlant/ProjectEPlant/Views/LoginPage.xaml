@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             mc:Ignorable="d"
+             x:Class="ProjectEPlant.Views.LoginPage">
+    <ContentPage.Content>
+        <ScrollView 
+            VerticalOptions="FillAndExpand"
+            Margin="10">
+            <StackLayout 
+                Padding="10, 20">
+                <Label    
+                    x:Name="appName_lbl"
+                    FontAttributes="Bold"
+                    FontSize="Large"     
+                    HorizontalOptions="Center"
+                    Text="{Binding appName}"/>
+                <Image
+                    Source="planet.png"
+                    WidthRequest="200"/>
+                <Grid
+                    Margin="10, 20, 0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        x:Name="email_lbl"
+                        Grid.Row="0"
+                        Grid.Column="0" 
+                        Text="{Binding email}"
+                        VerticalOptions="Center"/>
+                    <Entry 
+                        x:Name="email_Entry"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Keyboard="Email"
+                        Placeholder = "Ingrese su e-mail"/>
+                    <Label 
+                        x:Name="password_lbl"
+                        Grid.Row="1"
+                        Grid.Column="0" 
+                        Text="{Binding password}"
+                        VerticalOptions="Center"/>
+                    <Entry 
+                        x:Name="password_Entry"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        IsPassword="True"
+                        Placeholder = "Ingrese su contraseña"/>
+                </Grid>
+                <StackLayout
+                    Padding="10, 5"
+                    Orientation="Horizontal">
+                    <Label
+                        x:Name="rememberMe_lbl"
+                        HorizontalOptions="StartAndExpand"
+                        Text="{Binding rememberMe}"
+                        VerticalOptions="Center"/>
+                    <Switch
+                        HorizontalOptions="End"/>
+                </StackLayout>
+                <ActivityIndicator
+                    Style="{StaticResource baseActivityIndicator}"
+                    Color="Black"
+                    IsVisible="{Binding IsBusy}">
+                </ActivityIndicator>
+                <Button
+                    x:Name="logIn_btn"
+                    BackgroundColor="Navy"
+                    CornerRadius="23"
+                    Text="{Binding logIn}"
+                    TextColor="White"
+                    Clicked="LogIn_btn_Clicked"/>
+                <Button 
+                    x:Name="signIn_btn"  
+                    BackgroundColor="BlueViolet"
+                    CornerRadius="23"
+                    Text="{Binding signIn}"
+                    TextColor="White"/>
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="Inicia sesión con"
+                    Margin="10"/>
+                <StackLayout 
+                    Orientation="Horizontal"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                    <controls:CircleImage 
+                        Aspect="AspectFit"
+                        WidthRequest="50">
+                        <controls:CircleImage.Source>
+                            <OnPlatform 
+                                x:TypeArguments="FileImageSource">
+                                <OnPlatform.Android>
+                                    <FileImageSource 
+                                        File="fb_logo.png" />
+                                </OnPlatform.Android>
+                                <OnPlatform.iOS>
+                                    <FileImageSource 
+                                        File="fb_logo.png" />
+                                </OnPlatform.iOS>
+                            </OnPlatform>
+                        </controls:CircleImage.Source>
+                    </controls:CircleImage>
+                    <controls:CircleImage 
+                        Aspect="AspectFit"
+                        WidthRequest="50">
+                        <controls:CircleImage.Source>
+                            <OnPlatform 
+                                x:TypeArguments="FileImageSource">
+                                <OnPlatform.Android>
+                                    <FileImageSource 
+                                        File="tw_logo.png" />
+                                </OnPlatform.Android>
+                                <OnPlatform.iOS>
+                                    <FileImageSource 
+                                        File="tw_logo.png" />
+                                </OnPlatform.iOS>
+                            </OnPlatform>
+                        </controls:CircleImage.Source>
+                    </controls:CircleImage>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
