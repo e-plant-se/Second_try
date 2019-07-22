@@ -80,7 +80,8 @@
                     BackgroundColor="BlueViolet"
                     CornerRadius="23"
                     Text="{Binding signIn}"
-                    TextColor="White"/>
+                    TextColor="White"
+                    Clicked="SignUp_btn_Clicked"/>
                 <Label
                     HorizontalTextAlignment="Center"
                     Text="Inicia sesión con"

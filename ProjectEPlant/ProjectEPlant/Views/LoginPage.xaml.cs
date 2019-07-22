@@ -21,7 +21,7 @@ namespace ProjectEPlant.Views
             BindingContext = _vm;
             Title = Strings.appName;
 
-            appName_lbl.Text = Strings.appName;
+            appName_lbl.Text = Strings.viewName;
             email_lbl.Text = Login.Email;
             password_lbl.Text = Login.password;
             rememberMe_lbl.Text = Login.rememberMe;
@@ -59,6 +59,14 @@ namespace ProjectEPlant.Views
                     await DisplayAlert(Login.MessageAlert, "No se pudo acceder, ingrese sus datos nuevamente...", Login.AcceptMessageAlert);
                 }
             }
+        }
+
+        private async void SignUp_btn_Clicked(object sender, EventArgs e)
+        {
+            //Navigation.InsertPageBefore(new UserRegistrationPage(), this);
+            //await Navigation.PopAsync();
+
+            Navigation.PushAsync(new UserRegistrationPage());
         }
     }
 }
