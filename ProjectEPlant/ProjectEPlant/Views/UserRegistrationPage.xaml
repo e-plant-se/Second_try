@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ProjectEPlant.Views.UserRegistrationPage">
+    <ContentPage.Content>
+        <StackLayout 
+             Padding="10, 20">
+            <Label 
+                x:Name="urpName_lbl"
+                FontAttributes="Bold"
+                FontSize="Large"     
+                HorizontalOptions="Center"
+                Text="{Binding urpName}"/>
+
+            <Grid
+                Margin="10, 20, 0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Label
+                    x:Name="userName_lbl"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="{Binding userName}"
+                    VerticalOptions="Center"/>
+                <Entry 
+                    x:Name="userName_Entry"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Keyboard="Plain"
+                    Placeholder = "Ingrese su nombre"/>
+
+                <Label
+                        x:Name="email_lbl"
+                        Grid.Row="1"
+                        Grid.Column="0" 
+                        Text="{Binding email}"
+                        VerticalOptions="Center"/>
+                <Entry 
+                        x:Name="email_Entry"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Keyboard="Email"
+                        Placeholder = "Ingrese su e-mail"/>
+
+                <Label 
+                        x:Name="password_lbl"
+                        Grid.Row="2"
+                        Grid.Column="0" 
+                        Text="{Binding password}"
+                        VerticalOptions="Center"/>
+                <Entry 
+                        x:Name="password_Entry"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        IsPassword="True"
+                        Placeholder = "Ingrese su contraseña"/>
+
+                <Label 
+                        x:Name="rPassword_lbl"
+                        Grid.Row="3"
+                        Grid.Column="0" 
+                        Text="{Binding rpassword}"
+                        VerticalOptions="Center"/>
+                <Entry 
+                        x:Name="rPassword_Entry"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        IsPassword="True"
+                        Placeholder = "Repita su contraseña"/>
+            </Grid>
+
+            <Button
+                    x:Name="register_btn"
+                    BackgroundColor="Navy"
+                    CornerRadius="23"
+                    Margin="75"
+                    Text="{Binding register}"
+                    TextColor="White"
+                    Clicked="register_btn_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
