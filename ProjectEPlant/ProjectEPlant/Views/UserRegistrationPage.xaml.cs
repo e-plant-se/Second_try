@@ -69,6 +69,11 @@ namespace ProjectEPlant.Views
             return true;
         }
 
+        void saveRegisterUserData()
+        {
+            _vm.saveUserData(userName_Entry.Text, email_Entry.Text);
+        }
+
         public async void register_btn_Clicked(object sender, EventArgs e)
         {
             if (await Validations())
@@ -79,12 +84,17 @@ namespace ProjectEPlant.Views
                 {
                     var message = "Registrado Correctamente...";
                     DependencyService.Get<IMessage>().ShortAlert(message);
+                    saveRegisterUserData();
                     var signIn = await _vm.GetSignIn(email_Entry.Text, password_Entry.Text);
                     if (signIn)
                     {
                         //This is just a flag, but will be deleted
                         var OkMessage = "Logueado Correctamente...";
                         DependencyService.Get<IMessage>().ShortAlert(OkMessage);
+
+                        //Next Page
+                        Navigation.InsertPageBefore(new RegisterPlantPage(), this);
+                        await Navigation.PopAsync();
                     }
                     else
                     {
