@@ -21,6 +21,9 @@ namespace ProjectEPlant.Views
         {
             InitializeComponent();
 
+            _vm = new LoginViewModel(Navigation);
+            BindingContext = _vm;
+
             Title = Strings.appName;
 
             urpName_lbl.Text = Strings.urpName;
