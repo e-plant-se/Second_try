@@ -1,5 +1,6 @@
 ﻿using ProjectEPlant.Helpers;
 using ProjectEPlant.Models.Interface;
+using ProjectEPlant.ViewsModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace ProjectEPlant.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserRegistrationPage : ContentPage
     {
+
+        LoginViewModel _vm;
         public UserRegistrationPage()
         {
             InitializeComponent();
@@ -62,8 +65,29 @@ namespace ProjectEPlant.Views
         {
             if (await Validations())
             {
-                var message = "Registrado Correctamente...";
-                DependencyService.Get<IMessage>().ShortAlert(message);
+                var response = await _vm.PostSignUp(email_Entry.Text, password_Entry.Text);
+
+                if (response)
+                {
+                    var message = "Registrado Correctamente...";
+                    DependencyService.Get<IMessage>().ShortAlert(message);
+                    var signIn = await _vm.GetSignIn(email_Entry.Text, password_Entry.Text);
+                    if (signIn)
+                    {
+                        //This is just a flag, but will be deleted
+                        var OkMessage = "Logueado Correctamente...";
+                        DependencyService.Get<IMessage>().ShortAlert(OkMessage);
+                    }
+                    else
+                    {
+                        await DisplayAlert(Login.MessageAlert, "No se pudo iniciar sesión", Login.AcceptMessageAlert);
+                    }
+                }
+                else
+                {
+                    await DisplayAlert(Login.MessageAlert, "No se pudo registrar", Login.AcceptMessageAlert);
+                }
+                
             }
             
         }
