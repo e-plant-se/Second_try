@@ -61,6 +61,11 @@ namespace ProjectEPlant.Views
                 await DisplayAlert(Login.MessageAlert, "¡Las contraseñas deben ser iguales!", Login.AcceptMessageAlert);
                 return false;
             }
+            else if ((password_Entry.Text).Length < 8)
+            {
+                await DisplayAlert(Login.MessageAlert, "¡La contraseña debe tener más de 8 caracteres!", Login.AcceptMessageAlert);
+                return false;
+            }
             return true;
         }
 
