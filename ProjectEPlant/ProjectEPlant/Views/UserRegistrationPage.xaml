@@ -32,7 +32,8 @@
                     Grid.Row="0"
                     Grid.Column="1"
                     Keyboard="Plain"
-                    Placeholder = "Ingrese su nombre"/>
+                    Placeholder = "Ingrese su nombre"
+                    ReturnType="Next"/>
 
                 <Label
                         x:Name="email_lbl"
@@ -45,7 +46,8 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         Keyboard="Email"
-                        Placeholder = "Ingrese su e-mail"/>
+                        Placeholder = "Ingrese su e-mail"
+                        ReturnType="Next"/>
 
                 <Label 
                         x:Name="password_lbl"
@@ -58,7 +60,8 @@
                         Grid.Row="2"
                         Grid.Column="1"
                         IsPassword="True"
-                        Placeholder = "Ingrese su contraseña"/>
+                        Placeholder = "Ingrese su contraseña"
+                    ReturnType="Next"/>
 
                 <Label 
                         x:Name="rPassword_lbl"
@@ -71,7 +74,8 @@
                         Grid.Row="3"
                         Grid.Column="1"
                         IsPassword="True"
-                        Placeholder = "Repita su contraseña"/>
+                        Placeholder = "Repita su contraseña"
+                    ReturnType="Go"/>
             </Grid>
 
             <Button
