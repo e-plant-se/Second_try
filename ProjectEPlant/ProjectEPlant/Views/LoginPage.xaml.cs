@@ -63,10 +63,7 @@ namespace ProjectEPlant.Views
 
         private async void SignUp_btn_Clicked(object sender, EventArgs e)
         {
-            //Navigation.InsertPageBefore(new UserRegistrationPage(), this);
-            //await Navigation.PopAsync();
-
-            Navigation.PushAsync(new UserRegistrationPage());
+            await Navigation.PushAsync(new UserRegistrationPage());
         }
     }
 }

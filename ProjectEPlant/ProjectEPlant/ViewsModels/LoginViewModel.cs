@@ -1,4 +1,5 @@
 ﻿using ProjectEPlant.Helpers;
+using ProjectEPlant.Models;
 using ProjectEPlant.Services;
 using ProjectEPlant.ViewsModels.Helpers;
 using System;
@@ -33,7 +34,7 @@ namespace ProjectEPlant.ViewsModels
                 IsBusy = true;
                 var response = await FirebaseAuth.SignIn(email, password);
                 IsBusy = false;
-                if(response == true)
+                if (response == true)
                 {
                     return response;
                 }
@@ -64,6 +65,16 @@ namespace ProjectEPlant.ViewsModels
                 ExceptionHandler.LogAndSendException(this, nameof(PostSignUp), ex);
                 return false;
             }
+        }
+
+        public async void saveUserData(string name, string email)
+        {
+            var model = new UserDataModel(){
+                name = name,
+                email = email
+            };
+
+            await WebApi.saveUserData(model);
         }
     }
 }

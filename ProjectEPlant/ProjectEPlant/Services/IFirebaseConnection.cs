@@ -10,5 +10,7 @@ namespace ProjectEPlant.Services
     {
         Task<List<RegisterPlantPage>> PostRegisterPlantAsync(RegisterPlantModel model);
         Task saveImage(Stream imgSteram, string nameImage);
+
+        Task saveUserData(UserDataModel model);
     }
 }

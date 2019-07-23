@@ -1,5 +1,6 @@
 ﻿using ProjectEPlant.Helpers;
 using ProjectEPlant.Models.Interface;
+using ProjectEPlant.ViewsModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,14 @@ namespace ProjectEPlant.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserRegistrationPage : ContentPage
     {
+
+        LoginViewModel _vm;
         public UserRegistrationPage()
         {
             InitializeComponent();
+
+            _vm = new LoginViewModel(Navigation);
+            BindingContext = _vm;
 
             Title = Strings.appName;
 
@@ -55,15 +61,51 @@ namespace ProjectEPlant.Views
                 await DisplayAlert(Login.MessageAlert, "¡Las contraseñas deben ser iguales!", Login.AcceptMessageAlert);
                 return false;
             }
+            else if ((password_Entry.Text).Length < 8)
+            {
+                await DisplayAlert(Login.MessageAlert, "¡La contraseña debe tener más de 8 caracteres!", Login.AcceptMessageAlert);
+                return false;
+            }
             return true;
+        }
+
+        void saveRegisterUserData()
+        {
+            _vm.saveUserData(userName_Entry.Text, email_Entry.Text);
         }
 
         public async void register_btn_Clicked(object sender, EventArgs e)
         {
             if (await Validations())
             {
-                var message = "Registrado Correctamente...";
-                DependencyService.Get<IMessage>().ShortAlert(message);
+                var response = await _vm.PostSignUp(email_Entry.Text, password_Entry.Text);
+
+                if (response)
+                {
+                    var message = "Registrado Correctamente...";
+                    DependencyService.Get<IMessage>().ShortAlert(message);
+                    saveRegisterUserData();
+                    var signIn = await _vm.GetSignIn(email_Entry.Text, password_Entry.Text);
+                    if (signIn)
+                    {
+                        //This is just a flag, but will be deleted
+                        var OkMessage = "Logueado Correctamente...";
+                        DependencyService.Get<IMessage>().ShortAlert(OkMessage);
+
+                        //Next Page
+                        Navigation.InsertPageBefore(new RegisterPlantPage(), this);
+                        await Navigation.PopAsync();
+                    }
+                    else
+                    {
+                        await DisplayAlert(Login.MessageAlert, "No se pudo iniciar sesión", Login.AcceptMessageAlert);
+                    }
+                }
+                else
+                {
+                    await DisplayAlert(Login.MessageAlert, "No se pudo registrar", Login.AcceptMessageAlert);
+                }
+                
             }
             
         }

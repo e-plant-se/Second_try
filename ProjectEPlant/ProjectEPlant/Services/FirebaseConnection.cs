@@ -72,6 +72,24 @@ namespace ProjectEPlant.Services
             }
         }
 
+        public async Task saveUserData(UserDataModel model)
+        {
+            try
+            {
+                CurrentConnectivity = Connectivity.NetworkAccess;
+                if (CurrentConnectivity == NetworkAccess.Internet)
+                {
+                    var modelo = model;
+                    var registerUserUrl = _baseUrl + "UsersData/.json";
+                    var stringContent = new StringContent(JsonConvert.SerializeObject(modelo), Encoding.UTF8, "application/json");
+                    await Client.PostAsync(registerUserUrl, stringContent).ConfigureAwait(false);
+                }
+            }catch(Exception ex)
+            {
+                ExceptionHandler.LogAndSendException(this, nameof(saveUserData), ex);
+            }
+        }
+
         #endregion
 
     }
