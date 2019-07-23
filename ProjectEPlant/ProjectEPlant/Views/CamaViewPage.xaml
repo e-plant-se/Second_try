@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:cells="clr-namespace:ProjectEPlant.Views.Cells"
+             mc:Ignorable="d"
+             x:Class="ProjectEPlant.Views.CamaViewPage"
+             Title="Huerto Cocoteros">
+    <ContentPage.Content>
+        <StackLayout 
+            Spacing="10" 
+            Padding="10">
+            <Button 
+                Clicked="Btn_agregar_Clicked"
+                Grid.Row="0" 
+                x:Name="btn_agregar" 
+                BackgroundColor="Navy" 
+                CornerRadius="23" 
+                TextColor="White" 
+                Text="Agregar Cama"/>
+            <Button
+                BackgroundColor="Navy"
+                CornerRadius="23"
+                TextColor="White"
+                Text="Agregar una Planta"
+                Clicked="Button_Clicked"></Button>
+            <Label 
+                Text="Camas de Cultivo" 
+                FontSize="30"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button 
+                    Clicked="Btn_eliminar_Clicked"
+                    Grid.Column="0" 
+                    x:Name="btn_eliminar" 
+                    BackgroundColor="Navy" 
+                    CornerRadius="23" 
+                    TextColor="White" 
+                    Text="Eliminar Cama" 
+                    IsVisible="False"/>
+                <Button 
+                    Clicked="Btn_modificar_Clicked"
+                    Grid.Column="1" 
+                    x:Name="btn_modificar" 
+                    BackgroundColor="Navy" 
+                    CornerRadius="23" 
+                    TextColor="White" 
+                    Text="Modificar Cama" 
+                    IsVisible="False" 
+                    IsEnabled="True" 
+                    InputTransparent="False"/>
+            </Grid>
+            <ListView
+                ItemsSource="{Binding CamaList}"
+                HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <cells:CamaViewCell></cells:CamaViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
