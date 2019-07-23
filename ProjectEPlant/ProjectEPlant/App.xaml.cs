@@ -13,9 +13,9 @@ namespace ProjectEPlant
         {
             InitializeComponent();
             firebaseAuth = new FirebaseAuthService();
-            firebaseAuth.Logout();
+            //firebaseAuth.Logout();
 
-            MainPage = new BaseNavigationPage(new LoginPage());
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()
@@ -25,7 +25,7 @@ namespace ProjectEPlant
 
             if (resp)
             {
-                MainPage = new BaseNavigationPage(new RegisterPlantPage());
+                MainPage = new MainMasterDetail();
             }
             
         }

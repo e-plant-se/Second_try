@@ -95,8 +95,9 @@ namespace ProjectEPlant.Views
                         DependencyService.Get<IMessage>().ShortAlert(OkMessage);
 
                         //Next Page
-                        Navigation.InsertPageBefore(new RegisterPlantPage(), this);
-                        await Navigation.PopAsync();
+                        Application.Current.MainPage = new MainMasterDetail();
+                        /*Navigation.InsertPageBefore(new RegisterPlantPage(), this);
+                        await Navigation.PopAsync();*/
                     }
                     else
                     {
