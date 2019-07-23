@@ -14,7 +14,7 @@
     <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
-                <Local:RegisterPlantPage></Local:RegisterPlantPage>
+                <Local:CamaViewPage></Local:CamaViewPage>
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

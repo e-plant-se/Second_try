@@ -2,14 +2,6 @@
 
 namespace ProjectEPlant.Models
 {
-    public class Cama
-    {
-        public partial class Welcome
-        {
-            [JsonProperty("")]
-            public Item[] Items { get; set; }
-        }
-
         public partial class Item
         {
             [JsonProperty("estructura")]
@@ -30,5 +22,4 @@ namespace ProjectEPlant.Models
             [JsonProperty("tipo")]
             public string Tipo { get; set; }
         }
-    }
 }

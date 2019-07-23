@@ -23,7 +23,7 @@ namespace ProjectEPlant.Views
             {
                 title = "Home page",
                 icon = "Pene",
-                tipeClass = typeof(RegisterPlantPage)
+                tipeClass = typeof(CamaViewPage)
             });
 
             masterPageItem.Add(new MasterItems
@@ -37,7 +37,7 @@ namespace ProjectEPlant.Views
             {
                 title = "Register Bed",
                 icon = "notPinusatAll",
-                tipeClass = typeof(RegisterPlantPage)
+                tipeClass = typeof(AgregarCamaPage)
             });
 
             listView.ItemsSource = masterPageItem;

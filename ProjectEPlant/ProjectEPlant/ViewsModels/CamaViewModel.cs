@@ -1,9 +1,9 @@
-﻿using ProjectEPlant.Services;
+﻿using ProjectEPlant.Models;
+using ProjectEPlant.Services;
 using ProjectEPlant.ViewsModels.Helpers;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using static ProjectEPlant.Models.Cama;
 
 namespace ProjectEPlant.ViewsModels
 {

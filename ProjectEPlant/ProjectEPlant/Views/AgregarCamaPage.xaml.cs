@@ -45,9 +45,9 @@ namespace ProjectEPlant.Views
             }
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            _vm.PostCamaAsync(huerto.Text, idCama.Text, tipo.Text, estructura.Text, planta.Text, fechaCultivo.Text);
+            await _vm.PostCamaAsync(huerto.Text, idCama.Text, tipo.Text, estructura.Text, planta.Text, fechaCultivo.Text);
         }
     }
 }
