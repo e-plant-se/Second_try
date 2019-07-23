@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,7 +7,10 @@ namespace ProjectEPlant.Models
 {
     public class UserDataModel
     {
-        public string name { get; set; }
-        public string email { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("email")]
+        public string Email { get; set; }
     }
 }
