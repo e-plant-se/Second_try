@@ -16,12 +16,14 @@ namespace ProjectEPlant.Views
     public partial class UserRegistrationPage : ContentPage
     {
 
-        LoginViewModel _vm;
+        userDataViewModel _vm;
+        LoginViewModel _vm2;
         public UserRegistrationPage()
         {
             InitializeComponent();
 
-            _vm = new LoginViewModel(Navigation);
+            _vm = new userDataViewModel(Navigation);
+            _vm2 = new LoginViewModel(Navigation);
             BindingContext = _vm;
 
             Title = Strings.appName;
@@ -85,7 +87,7 @@ namespace ProjectEPlant.Views
                     var message = "Registrado Correctamente...";
                     DependencyService.Get<IMessage>().ShortAlert(message);
                     saveRegisterUserData();
-                    var signIn = await _vm.GetSignIn(email_Entry.Text, password_Entry.Text);
+                    var signIn = await _vm2.GetSignIn(email_Entry.Text, password_Entry.Text);
                     if (signIn)
                     {
                         //This is just a flag, but will be deleted
@@ -93,8 +95,9 @@ namespace ProjectEPlant.Views
                         DependencyService.Get<IMessage>().ShortAlert(OkMessage);
 
                         //Next Page
-                        Navigation.InsertPageBefore(new RegisterPlantPage(), this);
-                        await Navigation.PopAsync();
+                        Application.Current.MainPage = new MainMasterDetail();
+                        /*Navigation.InsertPageBefore(new RegisterPlantPage(), this);
+                        await Navigation.PopAsync();*/
                     }
                     else
                     {

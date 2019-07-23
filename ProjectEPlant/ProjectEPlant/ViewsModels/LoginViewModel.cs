@@ -47,34 +47,5 @@ namespace ProjectEPlant.ViewsModels
                 return false;
             }
         }
-
-        public async Task<bool> PostSignUp(string email, string password)
-        {
-            try
-            {
-                var response = await FirebaseAuth.SignUp(email, password);
-                if (response == true)
-                {
-                    return response;
-                }
-
-                return false;
-            }
-            catch (Exception ex)
-            {
-                ExceptionHandler.LogAndSendException(this, nameof(PostSignUp), ex);
-                return false;
-            }
-        }
-
-        public async void saveUserData(string name, string email)
-        {
-            var model = new UserDataModel(){
-                name = name,
-                email = email
-            };
-
-            await WebApi.saveUserData(model);
-        }
     }
 }
