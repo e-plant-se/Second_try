@@ -51,6 +51,21 @@ namespace ProjectEPlant.Droid.Services
             throw new NotImplementedException();
         }
 
+        public System.Threading.Tasks.Task saveUserData(UserDataModel model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<Item>> PostRegisterCama(Item model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<Item>> GetCamasAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }

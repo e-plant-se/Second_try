@@ -1,7 +1,9 @@
 ﻿using ProjectEPlant.Helpers;
+using ProjectEPlant.Models;
 using ProjectEPlant.Models.Interface;
 using ProjectEPlant.ViewsModels;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,15 +15,17 @@ namespace ProjectEPlant.Views
     {
 
         LoginViewModel _vm;
+        MasterPage mp;
         public LoginPage()
         {
             InitializeComponent();
 
             _vm = new LoginViewModel(Navigation);
+            mp = new MasterPage();
             BindingContext = _vm;
             Title = Strings.appName;
 
-            appName_lbl.Text = Strings.appName;
+            appName_lbl.Text = Strings.viewName;
             email_lbl.Text = Login.Email;
             password_lbl.Text = Login.password;
             rememberMe_lbl.Text = Login.rememberMe;
@@ -51,14 +55,20 @@ namespace ProjectEPlant.Views
                 {
                     var message = "Logueado Correctamente...";
                     DependencyService.Get<IMessage>().ShortAlert(message);
-                    Navigation.InsertPageBefore(new RegisterPlantPage(), this);
-                    await Navigation.PopAsync();
+                    Application.Current.MainPage = new MainMasterDetail();
+                    //Navigation.InsertPageBefore(new MainMasterDetail(), this);
+                    //await Navigation.PopAsync();
                 }
                 else
                 {
                     await DisplayAlert(Login.MessageAlert, "No se pudo acceder, ingrese sus datos nuevamente...", Login.AcceptMessageAlert);
                 }
             }
+        }
+
+        private async void SignUp_btn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UserRegistrationPage());
         }
     }
 }

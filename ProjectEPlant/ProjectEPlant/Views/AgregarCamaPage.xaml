@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             mc:Ignorable="d"
+             x:Class="ProjectEPlant.Views.AgregarCamaPage">
+    <ScrollView>
+        <StackLayout>
+            <Label
+                Text="Huerto"></Label>
+            <Entry
+                x:Name="huerto"
+                Placeholder="Ingrese el nombre del huerto"></Entry>
+            <Label
+                Text="ID Cama"></Label>
+            <Entry
+                x:Name="idCama"
+                Placeholder="Ingrese el id de la cama"></Entry>
+            <Label
+                Text="Tipo"></Label>
+            <Entry
+                x:Name="tipo"
+                Placeholder="Ingrese el tipo de huerto"></Entry>
+            <Label
+                Text="Estructura"></Label>
+            <Entry
+                x:Name="estructura"
+                Placeholder="Ingrese la estructura"></Entry>
+            <Label
+                Text="Planta 1"></Label>
+            <Entry
+                x:Name="planta"
+                Placeholder="Ingrese la planta"></Entry>
+            <controls:CircleImage
+                x:Name="image"
+                Margin="10"
+                HorizontalOptions="Fill"
+                Aspect="AspectFit"
+                HeightRequest="100"
+                WidthRequest="100">
+                <controls:CircleImage.Source>
+                    <OnPlatform
+                        x:TypeArguments="ImageSource">
+                        <OnPlatform.Android>
+                            <FileImageSource></FileImageSource>
+                        </OnPlatform.Android>
+                    </OnPlatform>
+                </controls:CircleImage.Source>
+            </controls:CircleImage>
+            <Label
+                Text="Fecha de Cultivo"></Label>
+            <Entry
+                x:Name="fechaCultivo"
+                Placeholder="Ingrese la fecha de cultivo"></Entry>
+            <Button
+                Text="Guardar"
+                Clicked="Button_Clicked"></Button>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

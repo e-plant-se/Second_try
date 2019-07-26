@@ -1,4 +1,5 @@
 ﻿using ProjectEPlant.Helpers;
+using ProjectEPlant.Models;
 using ProjectEPlant.Services;
 using ProjectEPlant.ViewsModels.Helpers;
 using System;
@@ -33,25 +34,6 @@ namespace ProjectEPlant.ViewsModels
                 IsBusy = true;
                 var response = await FirebaseAuth.SignIn(email, password);
                 IsBusy = false;
-                if(response == true)
-                {
-                    return response;
-                }
-
-                return false;
-            }
-            catch (Exception ex)
-            {
-                ExceptionHandler.LogAndSendException(this, nameof(GetSignIn), ex);
-                return false;
-            }
-        }
-
-        public async Task<bool> PostSignUp(string email, string password)
-        {
-            try
-            {
-                var response = await FirebaseAuth.SignUp(email, password);
                 if (response == true)
                 {
                     return response;
@@ -61,7 +43,7 @@ namespace ProjectEPlant.ViewsModels
             }
             catch (Exception ex)
             {
-                ExceptionHandler.LogAndSendException(this, nameof(PostSignUp), ex);
+                ExceptionHandler.LogAndSendException(this, nameof(GetSignIn), ex);
                 return false;
             }
         }
